@@ -9,8 +9,29 @@
     <div id="app">
       <h1>Rotten Repo</h1>
       <p>select below</p>
-      <input>
+      <form action="">
+        <input type="date" id="commit-date">
+        <!-- <input type="number" id="commit-hours" min="0" max="24" placeholder="Hours">
+        <input type="number" id="commit-minutess" min="0" max="59" placeholder="Minutes">
+        <input type="number" id="commit-seconds" min="0" max="59" placeholder="Seconds"> -->
+        <input type="time" id="commit-time" step="1">
+        <input type="text" id="commit-message">
+        <output>git commit --date="YYYY-MM-DD HH:MM:SS" -m "Your commit message"</output>
+      </form>
     </div>
-    <script type="module" src="/main.js"></script>
+    <script>
+
+    const currentDate = new Date().toISOString().split('T')[0];
+    document.getElementById('commit-date').value = currentDate;
+    console.log(currentDate)
+
+    const now = new Date();
+    const currentHour = now.getHours().toString().padStart(2, '0');
+    const currentMinute = now.getMinutes().toString().padStart(2, '0');
+    const currentSecond = now.getSeconds().toString().padStart(2, '0');
+    const currentTime = `${currentHour}:${currentMinute}:${currentSecond}`;
+    document.getElementById('commit-time').value = currentTime;
+
+    </script>
   </body>
 </html>
