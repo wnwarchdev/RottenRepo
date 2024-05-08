@@ -16,7 +16,7 @@
         <input type="number" id="commit-seconds" min="0" max="59" placeholder="Seconds"> -->
         <input type="time" id="commit-time" step="1">
         <input type="text" id="commit-message">
-        <output>git commit --date="YYYY-MM-DD HH:MM:SS" -m "Your commit message"</output>
+        <output id="commit-output">git commit --date="YYYY-MM-DD HH:MM:SS" -m "Your commit message"</output>
       </form>
     </div>
     <script>
@@ -31,6 +31,23 @@
     const currentSecond = now.getSeconds().toString().padStart(2, '0');
     const currentTime = `${currentHour}:${currentMinute}:${currentSecond}`;
     document.getElementById('commit-time').value = currentTime;
+
+
+    const commitOutput = document.getElementById('commit-output')
+    const commitDate = document.getElementById('commit-date')
+    const commitTime = document.getElementById('commit-time')
+    const commitMessage = document.getElementById('commit-message')
+
+
+    document.addEventListener(`change`, function(e){
+      //e.preventDefault;
+      
+      console.log('change!')
+
+      let outputMessage = `git commit --date="${commitDate.value} ${commitTime.value}" -m "${commitMessage.value}"`
+
+      commitOutput.innerText = outputMessage
+    })
 
     </script>
   </body>
