@@ -17,6 +17,7 @@
         <input type="time" id="commit-time" step="1">
         <input type="text" id="commit-message">
         <output id="commit-output">git commit --date="YYYY-MM-DD HH:MM:SS" -m "Your commit message"</output>
+        <button id="copy-button" onclick="copyToClipboard()">COPY</button>
       </form>
     </div>
     <script>
@@ -38,16 +39,33 @@
     const commitTime = document.getElementById('commit-time')
     const commitMessage = document.getElementById('commit-message')
 
+    let outputMessage
 
     document.addEventListener(`change`, function(e){
       //e.preventDefault;
       
       console.log('change!')
 
-      let outputMessage = `git commit --date="${commitDate.value} ${commitTime.value}" -m "${commitMessage.value}"`
+      outputMessage = `git commit --date="${commitDate.value} ${commitTime.value}" -m "${commitMessage.value}"`
 
       commitOutput.innerText = outputMessage
     })
+
+
+    function copyToClipboard() {
+    var copyText = commitOutput.innerText;
+    
+    // // Select the text field
+    // copyText.select();
+    // copyText.setSelectionRange(0, 99999); /* For mobile devices */
+    
+    // Copy the text inside the text field
+    navigator.clipboard.writeText(copyText);
+    
+    // Alert the copied text
+    alert("Copied the text: " + copyText);
+}
+
 
     </script>
   </body>
