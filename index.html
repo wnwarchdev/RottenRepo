@@ -49,11 +49,13 @@
     }
 
     document.addEventListener(`change`, function(e){
-      //e.preventDefault;
-      
       console.log('change!')
       updateOutput()
-  
+    })
+
+    document.addEventListener(`keyup`, function(e){
+      console.log('keyup!')
+      updateOutput()
     })
 
 
