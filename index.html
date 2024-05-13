@@ -11,6 +11,8 @@
       <h1>Rotten Repo</h1>
       <p>select below</p>
       <form action="">
+        <input type="checkbox" id="commit-gitAdd">
+        <label for="commit-gitAdd">`git add .`?</label>
         <input type="date" id="commit-date">
         <!-- <input type="number" id="commit-hours" min="0" max="24" placeholder="Hours">
         <input type="number" id="commit-minutess" min="0" max="59" placeholder="Minutes">
@@ -34,7 +36,7 @@
     const currentTime = `${currentHour}:${currentMinute}:${currentSecond}`;
     document.getElementById('commit-time').value = currentTime;
 
-
+    const commitGitAdd = document.getElementById('commit-gitAdd')
     const commitOutput = document.getElementById('commit-output')
     const commitDate = document.getElementById('commit-date')
     const commitTime = document.getElementById('commit-time')
@@ -44,7 +46,7 @@
 
 
     const updateOutput = function(){
-      outputMessage = `git commit --date="${commitDate.value} ${commitTime.value}" -m "${commitMessage.value}"`
+      outputMessage = `${commitGitAdd.checked ? `git add . && ` : ``}git commit --date="${commitDate.value} ${commitTime.value}" -m "${commitMessage.value}"`
       commitOutput.innerText = outputMessage
     }
 
@@ -61,16 +63,8 @@
 
     function copyToClipboard() {
     var copyText = commitOutput.innerText;
-    
-    // // Select the text field
-    // copyText.select();
-    // copyText.setSelectionRange(0, 99999); /* For mobile devices */
-    
-    // Copy the text inside the text field
     navigator.clipboard.writeText(copyText);
-    
-    // Alert the copied text
-    //alert("Copied the text: " + copyText);
+
 }
 
 
