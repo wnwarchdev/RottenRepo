@@ -41,6 +41,10 @@ document.addEventListener(`keyup`, function (event) {
   updateOutput();
 });
 
+document.addEventListener("submit", function (event) {
+  event.preventDefault();
+});
+
 function copyToClipboard() {
   var copyText = commitOutput.innerText;
   navigator.clipboard.writeText(copyText);
