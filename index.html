@@ -9,13 +9,17 @@
   <body>
     <div id="app">
       <h1>Rotten Repo</h1>
-      <p>select below</p>
+      <p>Adjust controls below to create message line for date specific commits</p>
       <form id="form">
-        <input type="checkbox" id="commit-gitAdd">
-        <label for="commit-gitAdd">`git add .`</label>
-        <input type="date" id="commit-date">
-        <input type="time" id="commit-time" step="1">
-        <input type="text" id="commit-message" value="Your commit message">
+        
+        <div id="controls">
+          <div class="framed"><input type="checkbox" id="commit-gitAdd">
+            <label for="commit-gitAdd">`git add .`</label></div>
+        <input type="date" id="commit-date" class="framed">
+        <input type="time" id="commit-time" step="1" class="framed">
+      </div>
+        <input type="text" maxlength="72" id="commit-message" value="Your commit message" class="overflow">
+        <label for="commit-output">output:</label>
         <output id="commit-output"></output>
         <div class="tooltip"><button id="copy-button" onmouseout="outFunc()" onclick="copyToClipboard()"><span class="tooltiptext" id="myTooltip">Copy to clipboard</span>COPY</button></div>
         

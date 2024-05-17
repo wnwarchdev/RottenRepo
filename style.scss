@@ -2,6 +2,41 @@
 
 body {
   background-color: #70ba94;
+  display: flex;
+  justify-content: center;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  align-items: center;
+}
+
+#form {
+  display: flex;
+  flex-direction: column;
+}
+
+#controls {
+  display: flex;
+  justify-content: space-between;
+}
+
+#commit-output {
+  border-style: solid;
+  padding: 3px;
+  max-width: 300px;
+  overflow: auto;
+}
+
+.framed {
+  border-style: solid;
+  padding: 3px;
+  border-color: black;
+  border-width: 2px;
+  margin: 1px;
+  margin-bottom: 5px;
 }
 
 .tooltip {
