@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rotten Repo</title>
     <link rel="stylesheet" href="style.scss">
+   
   </head>
   <body>
     <div id="app">
@@ -13,10 +14,11 @@
       <form id="form">
         
         <div id="controls">
-          <div class="framed">
-            <input type="checkbox" id="commit-gitAdd">
-            <label for="commit-gitAdd">git add</label>
+          <div id='checkbox' class="framed grayed">
+            <input type="checkbox" id="commit-gitAdd" class="invisible">
+            <label for="commit-gitAdd">git add all</label>
           </div>
+          <!-- <button class="framed">GIT ADD .</button> -->
           <input type="date" id="commit-date" class="framed">
           <input type="time" id="commit-time" step="1" class="framed">
         </div>

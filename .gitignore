@@ -9,6 +9,10 @@ lerna-debug.log*
 
 node_modules
 dist
+.firebase
+.firebaserc
+firebase.json
+public/
 dist-ssr
 *.local
 
@@ -22,3 +26,5 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+

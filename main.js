@@ -2,7 +2,6 @@
 
 const currentDate = new Date().toISOString().split("T")[0];
 document.getElementById("commit-date").value = currentDate;
-console.log(currentDate);
 
 const now = new Date();
 const currentHour = now.getHours().toString().padStart(2, "0");
@@ -18,6 +17,7 @@ const commitTime = document.getElementById("commit-time");
 const commitMessage = document.getElementById("commit-message");
 const form = document.getElementById("form");
 const emoji = document.getElementById("emoji");
+const checkbox = document.getElementById("checkbox");
 
 let outputMessage;
 
@@ -32,18 +32,26 @@ const updateOutput = function () {
 
 document.addEventListener(`change`, function (event) {
   event.preventDefault();
-  console.log("change!");
   updateOutput();
 });
 
 document.addEventListener(`keyup`, function (event) {
   event.preventDefault();
-  console.log("keyup!");
   updateOutput();
 });
 
 document.addEventListener("submit", function (event) {
   event.preventDefault();
+});
+
+checkbox.addEventListener("change", function () {
+  if (commitGitAdd.checked) {
+    checkbox.style.backgroundColor = "#ff9900";
+    checkbox.style.textDecoration = "none";
+  } else {
+    checkbox.style.backgroundColor = "white";
+    checkbox.style.textDecoration = "line-through";
+  }
 });
 
 function copyToClipboard() {
