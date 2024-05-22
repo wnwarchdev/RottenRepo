@@ -25,8 +25,11 @@
         <input type="text" maxlength="72" id="commit-message" value="Your commit message" class="overflow">
         <label for="commit-output">output:</label>
         <output id="commit-output"></output>
-        <div class="tooltip"><button id="copy-button" class="center" onmouseout="outFunc()" onclick="copyToClipboard()"><span class="tooltiptext" id="myTooltip">Copy to clipboard</span>COPY</button></div>
-        
+        <div id="buttons">
+          <div class="tooltip"><button id="copy-button" class="center" onmouseout="outFunc()" onclick="copyToClipboard()"><span class="tooltiptext" id="myTooltip">Copy to clipboard</span>COPY</button></div>
+          <div class="tooltip"><button id="copy-button" class="center" onmouseout="outFunc()" onclick="copyToClipboard()"><span class="tooltiptext" id="oops">Copy to clipboard</span>OOPS</button></div>
+        </div>
+      
       </form>
     </div>
     <script src="main.js">
