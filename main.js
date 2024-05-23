@@ -18,6 +18,8 @@ const commitMessage = document.getElementById("commit-message");
 const form = document.getElementById("form");
 const emoji = document.getElementById("emoji");
 const checkbox = document.getElementById("checkbox");
+const buttonCopy = null;
+const buttonOops = document.getElementById("oops-button");
 
 let outputMessage;
 
@@ -62,6 +64,10 @@ function copyToClipboard() {
   tooltip.innerHTML = "Copied!";
   tooltip.style.backgroundColor = "#ff9900";
   emoji.innerText = "🤮";
+}
+
+function undoCommit() {
+  commitOutput.innerText = "git reset --soft HEAD~";
 }
 
 function outFunc() {
