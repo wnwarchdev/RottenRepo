@@ -70,6 +70,10 @@ function undoCommit() {
   commitOutput.innerText = "git reset --soft HEAD~";
 }
 
+function cleanPage() {
+  location.reload();
+}
+
 function outFunc() {
   var tooltip = document.getElementById("myTooltip");
   tooltip.innerHTML = "Copy to clipboard";
