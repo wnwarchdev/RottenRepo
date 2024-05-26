@@ -23,12 +23,34 @@ const buttonOops = document.getElementById("oops-button");
 
 let outputMessage;
 
+function sanitizeInput(input) {
+  // Create a map of characters to be escaped
+  const charMap = {
+    "\\": "\\\\",
+    '"': '\\"',
+    "'": "\\'",
+    $: "\\$",
+    "`": "\\`",
+    "|": "\\|",
+    "<": "\\<",
+    ">": "\\>",
+    "\n": "\\n",
+    "\r": "\\r",
+  };
+  // Use replace method with a regex and the map
+  return input
+    .replace(/[\\\"'$`|<>]/g, (match) => charMap[match])
+    .replace(/\n/g, "\\n")
+    .replace(/\r/g, "\\r");
+}
+
 const updateOutput = function () {
+  const sanitizedMessage = sanitizeInput(commitMessage.value);
   outputMessage = `${
     commitGitAdd.checked ? `git add . && ` : ``
-  }git commit --date="${commitDate.value} ${commitTime.value}" -m "${
-    commitMessage.value
-  }"`;
+  }git commit --date="${commitDate.value} ${
+    commitTime.value
+  }" -m "${sanitizedMessage}"`;
   commitOutput.innerText = outputMessage;
 };
 
