@@ -44,6 +44,18 @@ function sanitizeInput(input) {
     .replace(/\r/g, "\\r");
 }
 
+const disallowedCharsRegex = /[\\\"'$`|<>]/g;
+
+document
+  .getElementById("commit-message")
+  .addEventListener("input", function (event) {
+    const input = event.target.value;
+    const sanitizedInput = input.replace(disallowedCharsRegex, "");
+    if (input !== sanitizedInput) {
+      event.target.value = sanitizedInput;
+    }
+  });
+
 const updateOutput = function () {
   const sanitizedMessage = sanitizeInput(commitMessage.value);
   outputMessage = `${
