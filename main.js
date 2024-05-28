@@ -15,6 +15,7 @@ const commitOutput = document.getElementById("commit-output");
 const commitDate = document.getElementById("commit-date");
 const commitTime = document.getElementById("commit-time");
 const commitMessage = document.getElementById("commit-message");
+const copyclip = document.getElementById("copyclip");
 const form = document.getElementById("form");
 const emoji = document.getElementById("emoji");
 const checkbox = document.getElementById("checkbox");
@@ -94,9 +95,8 @@ function copyToClipboard() {
   var copyText = commitOutput.innerText;
   navigator.clipboard.writeText(copyText);
 
-  var tooltip = document.getElementById("myTooltip");
-  tooltip.innerHTML = "Copied!";
-  tooltip.style.backgroundColor = "#ff9900";
+  copyclip.innerHTML = "Copied!";
+  copyclip.style.backgroundColor = "#ff9900";
   emoji.innerText = "🤮";
 }
 
@@ -109,9 +109,8 @@ function cleanPage() {
 }
 
 function outFunc() {
-  var tooltip = document.getElementById("myTooltip");
-  tooltip.innerHTML = "Copy to clipboard";
-  tooltip.style.backgroundColor = "gray";
+  copyclip.innerHTML = "Copy to clipboard";
+  copyclip.style.backgroundColor = "gray";
   emoji.innerText = "😖";
 }
 
