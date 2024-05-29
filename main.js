@@ -81,6 +81,10 @@ document.addEventListener("submit", function (event) {
   event.preventDefault();
 });
 
+commitMessage.addEventListener("paste", function (event) {
+  event.preventDefault();
+});
+
 checkbox.addEventListener("change", function () {
   if (commitGitAdd.checked) {
     checkbox.style.backgroundColor = "#ff9900";
