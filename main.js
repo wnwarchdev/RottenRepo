@@ -24,7 +24,7 @@ const buttonOops = document.getElementById("oops-button");
 
 let outputMessage;
 
-function sanitizeInput(input) {
+const sanitizeInput = function (input) {
   // Create a map of characters to be escaped
   const charMap = {
     "\\": "\\\\",
@@ -43,7 +43,7 @@ function sanitizeInput(input) {
     .replace(/[\\\"'$`|<>]/g, (match) => charMap[match])
     .replace(/\n/g, "\\n")
     .replace(/\r/g, "\\r");
-}
+};
 
 const disallowedCharsRegex = /[\\\"'$`|<>]/g;
 
@@ -95,27 +95,27 @@ checkbox.addEventListener("change", function () {
   }
 });
 
-function copyToClipboard() {
-  var copyText = commitOutput.innerText;
+const copyToClipboard = function () {
+  const copyText = commitOutput.innerText;
   navigator.clipboard.writeText(copyText);
 
   copyclip.innerHTML = "Copied!";
   copyclip.style.backgroundColor = "#ff9900";
   emoji.innerText = "🤮";
-}
+};
 
-function undoCommit() {
+const undoCommit = function () {
   commitOutput.innerText = "git reset --soft HEAD~";
-}
+};
 
-function cleanPage() {
+const cleanPage = function () {
   location.reload();
-}
+};
 
-function outFunc() {
+const outFunc = function () {
   copyclip.innerHTML = "Copy to clipboard";
   copyclip.style.backgroundColor = "gray";
   emoji.innerText = "😖";
-}
+};
 
 updateOutput();
