@@ -21,6 +21,7 @@ const emoji = document.getElementById("emoji");
 const checkbox = document.getElementById("checkbox");
 const buttonCopy = null;
 const buttonOops = document.getElementById("oops-button");
+const buttonClear = document.getElementById("clear-button");
 
 let outputMessage;
 
@@ -108,7 +109,7 @@ const undoCommit = function () {
   commitOutput.innerText = "git reset --soft HEAD~";
 };
 
-const cleanPage = function () {
+const resetPage = function () {
   location.reload();
 };
 
