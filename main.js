@@ -109,6 +109,11 @@ const undoCommit = function () {
   commitOutput.innerText = "git reset --soft HEAD~";
 };
 
+const clearMessage = function () {
+  commitMessage.value = "";
+  updateOutput();
+};
+
 const resetPage = function () {
   location.reload();
 };
