@@ -1,14 +1,6 @@
 "use strict";
 
-const currentDate = new Date().toISOString().split("T")[0];
-document.getElementById("commit-date").value = currentDate;
-
-const now = new Date();
-const currentHour = now.getHours().toString().padStart(2, "0");
-const currentMinute = now.getMinutes().toString().padStart(2, "0");
-const currentSecond = now.getSeconds().toString().padStart(2, "0");
-const currentTime = `${currentHour}:${currentMinute}:${currentSecond}`;
-document.getElementById("commit-time").value = currentTime;
+//elements by ID
 
 const commitGitAdd = document.getElementById("commit-gitAdd");
 const commitOutput = document.getElementById("commit-output");
@@ -16,14 +8,23 @@ const commitDate = document.getElementById("commit-date");
 const commitTime = document.getElementById("commit-time");
 const commitMessage = document.getElementById("commit-message");
 const copyclip = document.getElementById("copyclip");
-const form = document.getElementById("form");
 const emoji = document.getElementById("emoji");
 const checkbox = document.getElementById("checkbox");
 const buttonCopy = null;
 const buttonOops = document.getElementById("oops-button");
 const buttonClear = document.getElementById("clear-button");
 
-let outputMessage;
+//get initial date
+const currentDate = new Date().toISOString().split("T")[0];
+commitDate.value = currentDate;
+
+//get initial time
+const now = new Date();
+const currentHour = now.getHours().toString().padStart(2, "0");
+const currentMinute = now.getMinutes().toString().padStart(2, "0");
+const currentSecond = now.getSeconds().toString().padStart(2, "0");
+const currentTime = `${currentHour}:${currentMinute}:${currentSecond}`;
+commitTime.value = currentTime;
 
 const sanitizeInput = function (input) {
   // Create a map of characters to be escaped
@@ -60,7 +61,7 @@ document
 
 const updateOutput = function () {
   const sanitizedMessage = sanitizeInput(commitMessage.value);
-  outputMessage = `${
+  const outputMessage = `${
     commitGitAdd.checked ? `git add . && ` : ``
   }git commit --date="${commitDate.value} ${
     commitTime.value
