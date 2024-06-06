@@ -13,6 +13,7 @@ const checkbox = document.getElementById("checkbox");
 const buttonCopy = null;
 const buttonOops = document.getElementById("oops-button");
 const buttonClear = document.getElementById("clear-button");
+const buttonReset = document.getElementById("reset-button");
 
 //get initial date
 const currentDate = new Date().toISOString().split("T")[0];
@@ -124,5 +125,10 @@ const outFunc = function () {
   copyclip.style.backgroundColor = "gray";
   emoji.innerText = "😖";
 };
+
+buttonReset.addEventListener("click", function (e) {
+  e.preventDefault;
+  resetPage();
+});
 
 updateOutput();
