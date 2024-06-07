@@ -19,6 +19,13 @@ const buttonReset = document.getElementById("reset-button");
 const currentDate = new Date().toISOString().split("T")[0];
 commitDate.value = currentDate;
 
+//set max date
+commitDate.max = currentDate;
+console.log(commitDate.max);
+
+//set min date
+commitDate.min = `2010-01-01`;
+
 //get initial time
 const now = new Date();
 const currentHour = now.getHours().toString().padStart(2, "0");
