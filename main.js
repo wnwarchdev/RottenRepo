@@ -10,7 +10,7 @@ const commitMessage = document.getElementById("commit-message");
 const copyclip = document.getElementById("copyclip");
 const emoji = document.getElementById("emoji");
 const checkbox = document.getElementById("checkbox");
-const buttonCopy = null;
+const buttonCopy = document.getElementById("copy-button");
 const buttonOops = document.getElementById("oops-button");
 const buttonClear = document.getElementById("clear-button");
 const buttonReset = document.getElementById("reset-button");
@@ -21,7 +21,6 @@ commitDate.value = currentDate;
 
 //set max date
 commitDate.max = currentDate;
-console.log(commitDate.max);
 
 //set min date
 commitDate.min = `2010-01-01`;
@@ -136,6 +135,21 @@ const outFunc = function () {
 buttonReset.addEventListener("click", function (e) {
   e.preventDefault;
   resetPage();
+});
+
+buttonClear.addEventListener("click", function (e) {
+  e.preventDefault;
+  clearMessage();
+});
+
+buttonOops.addEventListener("click", function (e) {
+  e.preventDefault;
+  undoCommit();
+});
+
+buttonCopy.addEventListener("click", function (e) {
+  e.preventDefault;
+  copyToClipboard();
 });
 
 updateOutput();

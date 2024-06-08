@@ -19,16 +19,16 @@
             <label for="commit-gitAdd">git add all</label>
           </div>
           <!-- <button class="framed">GIT ADD .</button> -->
-          <input type="date" id="commit-date" max='2000-01-01' class="framed">
+          <input type="date" id="commit-date" class="framed">
           <input type="time" id="commit-time" step="1" class="framed">
         </div>
         <input type="text" maxlength="72" id="commit-message" value="Your commit message" class="overflow">
         <label for="commit-output">output:</label>
         <output id="commit-output"></output>
         <div id="buttons">
-          <div class="tooltip"><button id="copy-button" class="center" onmouseout="outFunc()" onclick="copyToClipboard()"><span class="tooltiptext" id="copyclip">Copy to clipboard</span>COPY</button></div>
-          <div class="tooltip"><button id="oops-button" class="center" onmouseout="outFunc()" onclick="undoCommit()"><span class="tooltiptext" id="oops">Undo last commit</span>OOPS</button></div>
-          <div class="tooltip"><button id="clear-button" class="center" onmouseout="outFunc()" onclick="clearMessage()"><span class="tooltiptext" id="clear">Clear message</span>CLEAR</button></div>
+          <div class="tooltip"><button id="copy-button" class="center" onmouseout="outFunc()"><span class="tooltiptext" id="copyclip">Copy to clipboard</span>COPY</button></div>
+          <div class="tooltip"><button id="oops-button" class="center" onmouseout="outFunc()"><span class="tooltiptext" id="oops">Undo last commit</span>OOPS</button></div>
+          <div class="tooltip"><button id="clear-button" class="center" onmouseout="outFunc()"><span class="tooltiptext" id="clear">Clear message</span>CLEAR</button></div>
           <div class="tooltip"><button id="reset-button" class="center" onmouseout="outFunc()"><span class="tooltiptext" id="reset">Reset all</span>RESET</button></div>
         </div>
       
