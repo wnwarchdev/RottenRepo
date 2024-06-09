@@ -10,6 +10,7 @@ const commitMessage = document.getElementById("commit-message");
 const copyclip = document.getElementById("copyclip");
 const emoji = document.getElementById("emoji");
 const checkbox = document.getElementById("checkbox");
+const buttons = document.getElementById("buttons");
 const buttonCopy = document.getElementById("copy-button");
 const buttonOops = document.getElementById("oops-button");
 const buttonClear = document.getElementById("clear-button");
@@ -150,6 +151,13 @@ buttonOops.addEventListener("click", function (e) {
 buttonCopy.addEventListener("click", function (e) {
   e.preventDefault;
   copyToClipboard();
+});
+
+buttons.addEventListener("mouseout", function (e) {
+  const target = e.target;
+  if (target && target.tagName === "BUTTON") {
+    outFunc();
+  }
 });
 
 updateOutput();
