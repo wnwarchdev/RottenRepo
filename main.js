@@ -95,6 +95,16 @@ commitMessage.addEventListener("paste", function (event) {
   event.preventDefault();
 });
 
+commitDate.addEventListener("focusout", function (e) {
+  e.preventDefault;
+  if (commitDate.value > commitDate.max) {
+    commitDate.value = commitDate.max;
+  } else if (commitDate.value < commitDate.min) {
+    commitDate.value = commitDate.min;
+  }
+  updateOutput();
+});
+
 checkbox.addEventListener("change", function () {
   if (commitGitAdd.checked) {
     checkbox.style.backgroundColor = "#ff9900";
