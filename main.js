@@ -67,7 +67,18 @@ document
     }
   });
 
+const timeCheck = function () {
+  if (commitDate.value == currentDate) {
+    console.log("true");
+    commitTime.max = `${currentTime}.00`;
+    console.log(commitTime.max);
+  } else {
+    console.log("false");
+  }
+};
+
 const updateOutput = function () {
+  timeCheck();
   const sanitizedMessage = sanitizeInput(commitMessage.value);
   const outputMessage = `${
     commitGitAdd.checked ? `git add . && ` : ``
