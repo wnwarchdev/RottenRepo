@@ -68,12 +68,8 @@ document
   });
 
 const timeCheck = function () {
-  if (commitDate.value == currentDate) {
-    console.log("true");
-    commitTime.max = `${currentTime}.00`;
-    console.log(commitTime.max);
-  } else {
-    console.log("false");
+  if (commitDate.value == currentDate && commitTime.value > currentTime) {
+    commitTime.value = currentTime;
   }
 };
 
