@@ -57,15 +57,13 @@ const sanitizeInput = function (input) {
 
 const disallowedCharsRegex = /[\\\"'$`|<>]/g;
 
-document
-  .getElementById("commit-message")
-  .addEventListener("input", function (event) {
-    const input = event.target.value;
-    const sanitizedInput = input.replace(disallowedCharsRegex, "");
-    if (input !== sanitizedInput) {
-      event.target.value = sanitizedInput;
-    }
-  });
+commitMessage.addEventListener("input", function (event) {
+  const input = event.target.value;
+  const sanitizedInput = input.replace(disallowedCharsRegex, "");
+  if (input !== sanitizedInput) {
+    event.target.value = sanitizedInput;
+  }
+});
 
 const timeCheck = function () {
   if (commitDate.value == currentDate && commitTime.value > currentTime) {
@@ -82,6 +80,34 @@ const updateOutput = function () {
     commitTime.value
   }" -m "${sanitizedMessage}"`;
   commitOutput.innerText = outputMessage;
+};
+
+const copyToClipboard = function () {
+  const copyText = commitOutput.innerText;
+  navigator.clipboard.writeText(copyText);
+
+  copyclip.innerHTML = "Copied!";
+  copyclip.style.backgroundColor = "#ff9900";
+  emoji.innerText = "🤮";
+};
+
+const undoCommit = function () {
+  commitOutput.innerText = "git reset --soft HEAD~";
+};
+
+const clearMessage = function () {
+  commitMessage.value = "";
+  updateOutput();
+};
+
+const resetPage = function () {
+  location.reload();
+};
+
+const outFunc = function () {
+  copyclip.innerHTML = "Copy to clipboard";
+  copyclip.style.backgroundColor = "gray";
+  emoji.innerText = "😖";
 };
 
 document.addEventListener(`change`, function (event) {
@@ -121,34 +147,6 @@ checkbox.addEventListener("change", function () {
     checkbox.style.textDecoration = "line-through";
   }
 });
-
-const copyToClipboard = function () {
-  const copyText = commitOutput.innerText;
-  navigator.clipboard.writeText(copyText);
-
-  copyclip.innerHTML = "Copied!";
-  copyclip.style.backgroundColor = "#ff9900";
-  emoji.innerText = "🤮";
-};
-
-const undoCommit = function () {
-  commitOutput.innerText = "git reset --soft HEAD~";
-};
-
-const clearMessage = function () {
-  commitMessage.value = "";
-  updateOutput();
-};
-
-const resetPage = function () {
-  location.reload();
-};
-
-const outFunc = function () {
-  copyclip.innerHTML = "Copy to clipboard";
-  copyclip.style.backgroundColor = "gray";
-  emoji.innerText = "😖";
-};
 
 buttonReset.addEventListener("click", function (e) {
   e.preventDefault;
