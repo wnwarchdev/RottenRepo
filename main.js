@@ -110,69 +110,85 @@ const outFunc = function () {
   emoji.innerText = "😖";
 };
 
-document.addEventListener(`change`, function (event) {
-  event.preventDefault();
-  updateOutput();
-});
+if (
+  commitGitAdd &&
+  commitOutput &&
+  commitDate &&
+  commitTime &&
+  commitMessage &&
+  copyclip &&
+  emoji &&
+  checkbox &&
+  buttons &&
+  buttonCopy &&
+  buttonOops &&
+  buttonClear &&
+  buttonReset
+) {
+  document.addEventListener(`change`, function (event) {
+    event.preventDefault();
+    updateOutput();
+  });
 
-document.addEventListener(`keyup`, function (event) {
-  event.preventDefault();
-  updateOutput();
-});
+  document.addEventListener(`keyup`, function (event) {
+    event.preventDefault();
+    updateOutput();
+  });
 
-document.addEventListener("submit", function (event) {
-  event.preventDefault();
-});
+  document.addEventListener("submit", function (event) {
+    event.preventDefault();
+  });
 
-commitMessage.addEventListener("paste", function (event) {
-  event.preventDefault();
-});
+  commitMessage.addEventListener("paste", function (event) {
+    event.preventDefault();
+  });
 
-commitDate.addEventListener("focusout", function (e) {
-  e.preventDefault;
-  if (commitDate.value > commitDate.max) {
-    commitDate.value = commitDate.max;
-  } else if (commitDate.value < commitDate.min) {
-    commitDate.value = commitDate.min;
-  }
-  updateOutput();
-});
+  commitDate.addEventListener("focusout", function (e) {
+    e.preventDefault;
+    if (commitDate.value > commitDate.max) {
+      commitDate.value = commitDate.max;
+    } else if (commitDate.value < commitDate.min) {
+      commitDate.value = commitDate.min;
+    }
+    updateOutput();
+  });
 
-checkbox.addEventListener("change", function () {
-  if (commitGitAdd.checked) {
-    checkbox.style.backgroundColor = "#ff9900";
-    checkbox.style.textDecoration = "none";
-  } else {
-    checkbox.style.backgroundColor = "white";
-    checkbox.style.textDecoration = "line-through";
-  }
-});
+  checkbox.addEventListener("change", function () {
+    if (commitGitAdd.checked) {
+      checkbox.style.backgroundColor = "#ff9900";
+      checkbox.style.textDecoration = "none";
+    } else {
+      checkbox.style.backgroundColor = "white";
+      checkbox.style.textDecoration = "line-through";
+    }
+  });
 
-buttonReset.addEventListener("click", function (e) {
-  e.preventDefault;
-  resetPage();
-});
+  buttonReset.addEventListener("click", function (e) {
+    e.preventDefault;
+    resetPage();
+  });
 
-buttonClear.addEventListener("click", function (e) {
-  e.preventDefault;
-  clearMessage();
-});
+  buttonClear.addEventListener("click", function (e) {
+    e.preventDefault;
+    clearMessage();
+  });
 
-buttonOops.addEventListener("click", function (e) {
-  e.preventDefault;
-  undoCommit();
-});
+  buttonOops.addEventListener("click", function (e) {
+    e.preventDefault;
+    undoCommit();
+  });
 
-buttonCopy.addEventListener("click", function (e) {
-  e.preventDefault;
-  copyToClipboard();
-});
+  buttonCopy.addEventListener("click", function (e) {
+    e.preventDefault;
+    copyToClipboard();
+  });
 
-buttons.addEventListener("mouseout", function (e) {
-  const target = e.target;
-  if (target && target.tagName === "BUTTON") {
-    outFunc();
-  }
-});
+  buttons.addEventListener("mouseout", function (e) {
+    const target = e.target;
+    if (target && target.tagName === "BUTTON") {
+      outFunc();
+    }
+  });
+}
 
 updateOutput();
