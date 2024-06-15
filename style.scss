@@ -23,6 +23,7 @@ body {
 #form {
   display: flex;
   flex-direction: column;
+  width: 350px;
 }
 
 #controls {
@@ -50,6 +51,9 @@ body {
   margin: 1px;
   margin-bottom: 5px;
   background-color: WHITE;
+  label {
+    vertical-align: -3px;
+  }
 }
 
 .invisible {
